@@ -1,0 +1,99 @@
+.main{
+    font-family: 'Roboto Flex', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.calculator{
+    display: flex;
+    border: 2px solid rgb(85, 85, 85);
+    width: 350px;
+    height: 520px;
+    border-radius: 10px;
+    background-color: rgb(207, 207, 207);
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 320px;
+    height:490px;
+    gap: 15px;
+}
+
+#display{
+    display: flex;
+    flex-direction: column;
+    width: 316px;
+    height: 126px;
+    background-color: white;
+    border-radius: 10px;
+    border: 2px solid rgb(85, 85, 85);
+    overflow: hidden;
+}
+
+#upper-text{
+    width: 300px;
+    height: 35px;
+    color: rgb(43, 43, 43);
+    font-weight: 200;
+    font-size: 20px;
+    text-align: end;
+    margin: 10px;
+}
+
+#lower-text{
+    width: 300px;
+    height: 61px;
+    font-size: 40px;
+    font-weight:400;
+    color: rgb(43, 43, 43);
+    text-align: end;
+    margin: 10px;
+}
+
+.clean{
+    width: 320px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#clear,
+#delete{
+    border-radius: 5px;
+    border: 2px solid rgb(85, 85, 85);
+    width: 153px;
+    height: 65px;
+    font-size: 20px;
+}
+
+#clear{
+    background-color: #faa;
+}
+
+#delete{
+    background-color: #aaf;
+}
+
+.keypad{
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 320px;
+    height: 269px;
+}
+
+.keypad2{
+    width: 72px;
+    border-radius: 5px;
+    border: 2px solid rgb(85, 85, 85);
+    font-size: 25px;
+
+}
