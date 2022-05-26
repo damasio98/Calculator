@@ -16,122 +16,190 @@ const equal = document.getElementById("equal")
 const division = document.getElementById("divide")
 const text = document.getElementById("lower-text")
 const upperText = document.getElementById("upper-text")
+const clear = document.getElementById("clear")
+const deletes = document.getElementById("delete")
 
-let firstNumber = 0;
-let secondNumber = 0;
-let result = 0;
+let firstNumber = undefined;
+let secondNumber = undefined;
+let symbol = ''
+let symbol2 = ''
 
-function add(a,b){
-    return a+b
+function Operation(firstNumber){
+    if (secondNumber===undefined){
+        secondNumber = Number(firstNumber)
+        upperText.innerText = firstNumber + symbol
+        text.innerText = ''
+        symbol2 = symbol
+        normal()
+    }
+
+    else {
+        Result2()
+    }
 }
 
-function subtract(a,b){
-    return a-b
+function normal(){
+    firstNumber=undefined;
 }
 
-function multiply(a,b){
-    return a*b
+function Result2(){
+    result = 0
+    if (symbol2 === '+'){
+        result =   Number(secondNumber) +  Number(firstNumber)
+        symbol2 = symbol
+        upperText.innerText = [Math.round(result * 100) / 100] + symbol2
+        text.innerText = ''
+    }
+    else if (symbol2 === '-'){
+        result = Number(secondNumber) -  Number(firstNumber)
+        symbol2 = symbol
+        upperText.innerText = [Math.round(result * 100) / 100] + symbol2
+        text.innerText = ''
+    }
+    else if (symbol2 === 'x'){
+        result = Number(secondNumber) *  Number(firstNumber)
+        symbol2 = symbol
+        upperText.innerText = [Math.round(result * 100) / 100] + symbol2
+        text.innerText = ''
+    }
+    else if (symbol2 === '÷'){
+        if (firstNumber==0){
+            text.innerText = 'Go learn Math'
+        }
+        else {
+            result = Number(secondNumber) /  Number(firstNumber)
+            symbol2 = symbol
+            upperText.innerText = [Math.round(result * 100) / 100] + symbol2
+            text.innerText = ''
+        }
+    }
+    secondNumber = result
+    normal()
 }
 
-function divide (a,b){
-    return a/b
+function Result(){
+    result = 0
+    if (firstNumber===undefined){
+        return
+    }
+    else if (symbol === '+'){
+        result =   Number(secondNumber) +  Number(firstNumber)
+        upperText.innerText = secondNumber + symbol + firstNumber + '='
+        text.innerText = Math.round(result * 100) / 100
+    }
+    else if (symbol === '-'){
+        result = Number(secondNumber) -  Number(firstNumber)
+        upperText.innerText = secondNumber + symbol + firstNumber + '='
+        text.innerText = Math.round(result * 100) / 100
+    }
+    else if (symbol === 'x'){
+        result = Number(secondNumber) *  Number(firstNumber)
+        upperText.innerText = secondNumber + symbol + firstNumber + '='
+        text.innerText = Math.round(result * 100) / 100
+    }
+    else if (symbol === '÷'){
+        if (firstNumber==0){
+            upperText.innerText = secondNumber + symbol + firstNumber + '='
+            text.innerText = 'Go learn math'
+        }
+        else{
+            result = Number(secondNumber) /  Number(firstNumber)
+            upperText.innerText = secondNumber + symbol + firstNumber + '='
+            text.innerText = Math.round(result * 100) / 100
+        }
+    }
 }
 
-function store(first){
+function store1(first){
     text.innerText+=first
+    firstNumber = text.innerText
 }
 
 
 
 //#region 
 zero.onclick = function(){
-    store(zero.value);
+    store1(zero.value);
 }
 
 one.onclick = function(){
-    store(one.value);
+    store1(one.value);
 }
 
 two.onclick = function(){
-    store(two.value);
+    store1(two.value);
 }
 
 three.onclick = function(){
-    store(three.value);
+    store1(three.value);
 }
 
 four.onclick = function(){
-    store(four.value);
+    store1(four.value);
 }
 
 five.onclick = function(){
-    store(five.value);
+    store1(five.value);
 }
 
 six.onclick = function(){
-    store(six.value);
+    store1(six.value);
 }
 
 seven.onclick = function(){
-    store(seven.value);
+    store1(seven.value);
 }
 
 eight.onclick = function(){
-    store(eight.value);
+    store1(eight.value);
 }
 
 nine.onclick = function(){
-    store(nine.value);
+    store1(nine.value);
 }
 
 dot.onclick = function(){
-    store(dot.value);
+    store1(dot.value);
 }
 
 plus.onclick = function(){
-    
+    symbol = '+'
+    Operation(firstNumber)
 }
 
 minus.onclick = function(){
-    
+    symbol = '-'
+    Operation(firstNumber)
 }
 
 times.onclick = function(){
-    
+    symbol = 'x'
+    Operation(firstNumber)
 }
 
 division.onclick = function(){
-    
+    symbol  = '÷'
+    Operation(firstNumber)
 }
 
 equal.onclick = function(){
-
+    Result()
 }
+
+clear.onclick = function(){
+    upperText.innerText=''
+    text.innerText=''
+    firstNumber=undefined
+    secondNumber=undefined
+    symbol=''
+    symbol2=''
+}
+
+deletes.onclick = function(){
+    befores = text.innerText
+    afters = befores.substring(0, befores.length - 1)
+    text.innerText = afters
+    firstNumber = afters
+}
+
 //#endregion
-
-
-
-
-
-
-
-
-/*const keypad = {
-    zero : document.getElementById("zero"),
-    one : document.getElementById("one"),
-    two : document.getElementById("two"),
-    three : document.getElementById("three"),
-    four : document.getElementById("four"),
-    five : document.getElementById("five"),
-    six : document.getElementById("six"),
-    seven : document.getElementById("seven"),
-    eight : document.getElementById("eight"),
-    nine : document.getElementById("nine"),
-    dot : document.getElementById("dot"),
-    plus : document.getElementById("add"),
-    minus : document.getElementById("subtract"),
-    times : document.getElementById("multiply"),
-    equal : document.getElementById("equal"),
-    division : document.getElementById("divide")
-}*/
-
