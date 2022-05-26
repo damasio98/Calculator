@@ -27,7 +27,7 @@ let symbol2 = ''
 function Operation(firstNumber){
     if (secondNumber===undefined){
         secondNumber = Number(firstNumber)
-        upperText.innerText = firstNumber + symbol
+        upperText.innerText = [Math.round(firstNumber * 100) / 100] + symbol
         text.innerText = ''
         symbol2 = symbol
         normal()
@@ -84,27 +84,27 @@ function Result(){
     }
     else if (symbol === '+'){
         result =   Number(secondNumber) +  Number(firstNumber)
-        upperText.innerText = secondNumber + symbol + firstNumber + '='
+        upperText.innerText = [Math.round(secondNumber * 100) / 100] + symbol + [Math.round(firstNumber * 100) / 100] + '='
         text.innerText = Math.round(result * 100) / 100
     }
     else if (symbol === '-'){
         result = Number(secondNumber) -  Number(firstNumber)
-        upperText.innerText = secondNumber + symbol + firstNumber + '='
+        upperText.innerText = [Math.round(secondNumber * 100) / 100] + symbol + [Math.round(firstNumber * 100) / 100] + '='
         text.innerText = Math.round(result * 100) / 100
     }
     else if (symbol === 'x'){
         result = Number(secondNumber) *  Number(firstNumber)
-        upperText.innerText = secondNumber + symbol + firstNumber + '='
+        upperText.innerText = [Math.round(secondNumber * 100) / 100] + symbol + [Math.round(firstNumber * 100) / 100] + '='
         text.innerText = Math.round(result * 100) / 100
     }
     else if (symbol === '÷'){
         if (firstNumber==0){
-            upperText.innerText = secondNumber + symbol + firstNumber + '='
+            upperText.innerText = [Math.round(secondNumber * 100) / 100] + symbol + [Math.round(firstNumber * 100) / 100] + '='
             text.innerText = 'Go learn math'
         }
         else{
             result = Number(secondNumber) /  Number(firstNumber)
-            upperText.innerText = secondNumber + symbol + firstNumber + '='
+            upperText.innerText = [Math.round(secondNumber * 100) / 100] + symbol + [Math.round(firstNumber * 100) / 100] + '='
             text.innerText = Math.round(result * 100) / 100
         }
     }
