@@ -159,7 +159,12 @@ nine.onclick = function(){
 }
 
 dot.onclick = function(){
-    store1(dot.value);
+    if (text.innerText.includes('.')===true){
+        return
+    }
+    else {
+        store1(dot.value);
+    }
 }
 
 plus.onclick = function(){
