@@ -44,7 +44,12 @@ function normal(){
 
 function Result2(){
     result = 0
-    if (symbol2 === '+'){
+    if (firstNumber===undefined){
+        symbol2 = symbol
+        upperText.innerText = secondNumber + symbol2
+        return
+    }
+    else if (symbol2 === '+'){
         result =   Number(secondNumber) +  Number(firstNumber)
         symbol2 = symbol
         upperText.innerText = [Math.round(result * 100) / 100] + symbol2
