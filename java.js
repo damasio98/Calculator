@@ -46,7 +46,7 @@ function Result2(){
     result = 0
     if (firstNumber===undefined){
         symbol2 = symbol
-        upperText.innerText = secondNumber + symbol2
+        upperText.innerText = [Math.round(secondNumber * 100) / 100] + symbol2
         return
     }
     else if (symbol2 === '+'){
