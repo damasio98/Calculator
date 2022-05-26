@@ -1,3 +1,4 @@
+//Constants for calculator buttons
 const zero = document.getElementById("zero")
 const one = document.getElementById("one")
 const two = document.getElementById("two")
@@ -19,11 +20,12 @@ const upperText = document.getElementById("upper-text")
 const clear = document.getElementById("clear")
 const deletes = document.getElementById("delete")
 
-let firstNumber = undefined;
-let secondNumber = undefined;
+let firstNumber = undefined; //number on the down side of the display
+let secondNumber = undefined; //number on the up side of the display
 let symbol = ''
 let symbol2 = ''
 
+// after clicking on an operator
 function Operation(firstNumber){
     if (secondNumber===undefined){
         secondNumber = Number(firstNumber)
@@ -38,10 +40,12 @@ function Operation(firstNumber){
     }
 }
 
+//returns number to normal state
 function normal(){
     firstNumber=undefined;
 }
 
+//for all operations, except the first one
 function Result2(){
     result = 0
     if (firstNumber===undefined){
@@ -82,6 +86,7 @@ function Result2(){
     normal()
 }
 
+//for the first operation
 function Result(){
     result = 0
     if (firstNumber===undefined){
@@ -115,13 +120,14 @@ function Result(){
     }
 }
 
+//after a number key is pressed
 function store1(first){
     text.innerText+=first
     firstNumber = text.innerText
 }
 
 
-
+//give values to each buttom
 //#region 
 zero.onclick = function(){
     store1(zero.value);
@@ -196,6 +202,7 @@ equal.onclick = function(){
     Result()
 }
 
+//clear all data on the calculator
 clear.onclick = function(){
     upperText.innerText=''
     text.innerText=''
@@ -205,6 +212,7 @@ clear.onclick = function(){
     symbol2=''
 }
 
+//deletes the last digit on ther down side of the display
 deletes.onclick = function(){
     befores = text.innerText
     afters = befores.substring(0, befores.length - 1)
